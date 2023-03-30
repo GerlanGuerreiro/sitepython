@@ -25,7 +25,7 @@ login_manager.login_message_category = 'alert-info'
 from comunidade import models
 engine = sqlalchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 inspection = sqlalchemy.inspect(engine)
-if not inspection.has_table("usuario", schema="dbo"):
+if not sqlalchemy.engine.reflection.Inspector.has_table(inspection, 'usuario'):
     with app.app_context():
         database.drop_all()
         database.create_all()
@@ -35,7 +35,7 @@ else:
 
 from comunidade import routes
 
-
 # def comunidade():
 #     return None
+
 
