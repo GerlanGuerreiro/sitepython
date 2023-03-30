@@ -34,7 +34,6 @@ else:
 
 from comunidade import routes
 
-
 # def comunidade():
 #     return None
 
